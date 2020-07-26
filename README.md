@@ -227,6 +227,6 @@ using pyenv you can install multiple versions of python so that tox can run test
 pyenv global 3.6.8 3.7.7 3.8.2
 ```
 ensure that before running tox you don't have a virtualenv created and tox has been installed globally or via pipx
-## TODO:
-# Alter some Admin Control Class attributes to add functionalities like link to user instance...etc
-# alter model and middleware to store User Agent.
+# TODO:
+Alter some Admin Control Class attributes to add functionalities like link to user instance...etc
+alter model and middleware to store User Agent.
