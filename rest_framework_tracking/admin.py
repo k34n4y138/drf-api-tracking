@@ -24,7 +24,7 @@ class APIRequestLogAdmin(admin.ModelAdmin):
                            'user_agent')
 
     def user_link(self, obj):
-        if obj.user.is_authenticated:
+        if obj.user.is_anonymous:
             return
         ct = ContentType.objects.get_for_model(obj.user.model)
         if not ct:
