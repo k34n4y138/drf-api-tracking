@@ -3,9 +3,9 @@ import ipaddress
 import logging
 import traceback
 
+import httpagentparser
 from django.db import connection
 from django.utils.timezone import now
-
 
 logger = logging.getLogger(__name__)
 
@@ -59,6 +59,7 @@ class BaseLoggingMixin(object):
             else:
                 rendered_content = response.getvalue()
 
+            user_agent = request.META.get('HTTP_USER_AGENT')
             self.log.update(
                 {
                     'remote_addr': self._get_ip_address(request),
@@ -74,6 +75,9 @@ class BaseLoggingMixin(object):
                     'response_ms': self._get_response_ms(),
                     'response': self._clean_data(rendered_content),
                     'status_code': response.status_code,
+                    'user_agent': user_agent,
+                    'browser': httpagentparser.simple_detect(user_agent)[1],
+                    'operating_system': httpagentparser.simple_detect(user_agent)[0]
                 }
             )
             if self._clean_data(request.query_params.dict()) == {}:
