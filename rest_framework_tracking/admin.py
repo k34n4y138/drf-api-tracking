@@ -12,7 +12,7 @@ class APIRequestLogAdmin(admin.ModelAdmin):
     list_display = ('id', 'requested_at', 'response_ms', 'status_code',
                     'user', 'method',
                     'path', 'remote_addr', 'host', 'browser', 'operating_system')
-    list_filter = ('method', 'status_code',)
+    list_filter = ('method', 'status_code', 'operating_system')
     search_fields = ('path', 'user__email', 'user__id',)
     readonly_fields = ('user_link',)
     exclude = ('user',)
