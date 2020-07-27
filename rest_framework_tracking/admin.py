@@ -26,7 +26,7 @@ class APIRequestLogAdmin(admin.ModelAdmin):
     def user_link(self, obj):
         if obj.user.is_anonymous:
             return
-        ct = ContentType.objects.get_for_model(obj.user.model)
+        ct = ContentType.objects.get_for_model(type(obj.user))
         if not ct:
             return
         return format_html('<a href="%s">%s</a>' % (
