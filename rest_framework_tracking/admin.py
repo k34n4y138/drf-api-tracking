@@ -20,7 +20,8 @@ class APIRequestLogAdmin(admin.ModelAdmin):
         readonly_fields = ('user', 'username_persistent', 'requested_at',
                            'response_ms', 'path', 'view', 'view_method',
                            'remote_addr', 'host', 'method', 'query_params',
-                           'data', 'response', 'errors', 'status_code', 'browser', 'operating_system', 'user_link')
+                           'data', 'response', 'errors', 'status_code', 'browser', 'operating_system', 'user_link',
+                           'user_agent')
 
     def user_link(self, obj):
         if obj.user.is_authenticated:
