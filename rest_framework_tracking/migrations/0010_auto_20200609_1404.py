@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('rest_framework_tracking', '0009_view_method_max_length_200'),
     ]
@@ -23,6 +22,22 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='apirequestlog',
             name='view',
-            field=models.CharField(blank=True, db_index=True, help_text='method called by this endpoint', max_length=200, null=True),
+            field=models.CharField(blank=True, db_index=True, help_text='method called by this endpoint',
+                                   max_length=200, null=True),
         ),
+        migrations.AlterField(
+            model_name='apirequestlog',
+            name='user_agent',
+            field=models.TextField(help_text='user agent of machine making the request')
+        ),
+        migrations.AlterField(
+            model_name='apirequestlog',
+            name='browser',
+            field=models.CharField(max_length=200, blank=True, null=True)
+        ),
+        migrations.AlterField(
+            model_name='apirequestlog',
+            name='operating_system',
+            field=models.CharField(max_length=200, blank=True, null=True)
+        )
     ]

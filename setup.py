@@ -58,7 +58,6 @@ def get_package_data(package):
 
 version = get_version(package)
 
-
 if sys.argv[-1] == 'publish':
     if os.system("pip freeze | grep wheel"):
         print("wheel not installed.\nUse `pip install wheel`.\nExiting.")
@@ -91,6 +90,7 @@ setup(
         'Django>=1.7',
         'djangorestframework>=3',
         'pytz',
+        'httpagentparser'
     ],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',

@@ -45,6 +45,9 @@ class BaseAPIRequestLog(models.Model):
     errors = models.TextField(null=True, blank=True)
     status_code = models.PositiveIntegerField(null=True, blank=True)
     objects = PrefetchUserManager()
+    user_agent = models.TextField(blank=True, null=True, help_text='user agent of machine making the request')
+    browser = models.CharField(max_length=200, blank=True, null=True)
+    operating_system = models.CharField(max_length=200, blank=True, null=True)
 
     class Meta:
         abstract = True
